@@ -16,9 +16,9 @@ public class Player {
     }
 
     //Setters
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public void setRuns(int runs) {
         this.individualRuns = runs;
