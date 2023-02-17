@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Scorecard
 {
+    //Method 1: This method displays team scorecard
     public void displayTeamScoreCard(List<Player> player_list,int numberOfPlayers,int wickets_left)
     {
         int total_team_runs=0;

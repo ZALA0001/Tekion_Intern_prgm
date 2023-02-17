@@ -5,7 +5,7 @@ import java.util.List;
 public class PlayService {
     Util util = new Util();
 
-    //Method 1
+    //Method 1(In this function details input is being called and on basis of toss outcome the one who bats first is decided)
     public void startGame(int overs) {
 
         PlayService playService = new PlayService();
@@ -25,9 +25,8 @@ public class PlayService {
         }
     }
 
-    //Method 2
+    //Method 2(In this function the innings are being played and the result is declared)
     public void batFirst(Teams objTeam1, Teams objTeam2, int overs) {
-
         Innings innings = new Innings();
 
         innings.playInnings(objTeam1, overs); //innings 1
@@ -38,7 +37,7 @@ public class PlayService {
         else System.out.println("Its a tie");
     }
 
-    //Method 3
+    //Method 3(In this function team details are being set)
     public Teams setDetails() {
         Teams teams = new Teams();
         int numberOfPlayers = util.takeInputInteger();
@@ -50,7 +49,7 @@ public class PlayService {
         return teams;
     }
 
-    //Method 4
+    //Method 4(In this function game is being played)
     public Teams matchSimulate(int overs, int target, List<Player> playerList, int numberOfPlayers) {
         int total_team_runs = 0;
         int wickets_left = numberOfPlayers - 1;
@@ -109,7 +108,7 @@ public class PlayService {
         return obj_teams;
     }
 
-    //Method 5
+    //Method 5(This function is updated after every ball)
     private static int eachBallUpdate(List<Player> playerList, int total_team_runs, int strike, int curr_ball_runs) {
         System.out.print(curr_ball_runs + " ");
         total_team_runs += curr_ball_runs;
