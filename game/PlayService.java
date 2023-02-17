@@ -27,30 +27,11 @@ public class PlayService {
 
     //Method 2
     public void batFirst(Teams objTeam1, Teams objTeam2, int overs) {
-        Scorecard play_game = new Scorecard();
-        PlayService objPlayService = new PlayService();
 
-        Teams simulationObject;
-        System.out.println("Team name: " + objTeam1.getName() + " bats first");
-        objTeam1.getPlayerListName();
-        objTeam1.getPlayerSkillSet();
+        Innings innings = new Innings();
 
-        simulationObject = matchSimulate(overs, Integer.MAX_VALUE, objTeam1.getPlayerList(), objTeam1.getNumberOfPlayers());
-        objTeam1.setTeamRuns(simulationObject.totalTeamRuns);
-        play_game.displayTeamScoreCard(objTeam1.getPlayerList(), objTeam1.getNumberOfPlayers(), simulationObject.totalWickets);
-        System.out.println(objTeam1.getName() + " scored " + objTeam1.getTeamScore() + " runs");
-        System.out.println(" ");
-
-
-        System.out.println("Team name: " + objTeam2.getName());
-        objTeam2.getPlayerListName();
-        objTeam2.getPlayerSkillSet();
-
-        simulationObject = objPlayService.matchSimulate(overs, objTeam1.getTeamScore(), objTeam2.getPlayerList(), objTeam2.numberOfPlayers);
-        play_game.displayTeamScoreCard(objTeam2.getPlayerList(), objTeam2.numberOfPlayers, simulationObject.totalWickets);
-        objTeam2.setTeamRuns(simulationObject.totalTeamRuns);
-        System.out.println(objTeam2.getName() + " scored " + objTeam2.getTeamScore() + " runs");
-        System.out.println(" ");
+        innings.playInnings(objTeam1, overs); //innings 1
+        innings.playInnings(objTeam2, overs); //innings 2
 
         if (objTeam1.getTeamScore() > objTeam2.getTeamScore()) System.out.println(objTeam1.getName() + " wins");
         else if (objTeam1.getTeamScore() < objTeam2.getTeamScore()) System.out.println(objTeam2.getName() + " wins");
@@ -115,7 +96,8 @@ public class PlayService {
             }
 
             System.out.println(" ");
-            if (flag == 1) break;              //Line 120 is for if it's an all out case or if target is already achieved
+            if (flag == 1)
+                break;              //Line 120 is for if it's an all out case or if target is already achieved
             else {                                                 //Lines 121-123 is for strike change after every over
                 if (strike == f_p) strike = s_p;
                 else if (strike == s_p) strike = f_p;
